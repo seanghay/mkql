@@ -16,11 +16,16 @@ Using query params
 https://mkql.deno.dev/?url=https://api.spacex.land/graphql
 ```
 
+[Visit](https://mkql.deno.dev/?url=https://api.spacex.land/graphql)
+
+
 > **protocol** is optional (default: `https`)
 
 ```
 https://mkql.deno.dev/?url=api.spacex.land/graphql
 ```
+
+[Visit](https://mkql.deno.dev/?url=api.spacex.land/graphql)
 
 ---
 
@@ -31,6 +36,8 @@ Using path
 ```
 https://mkql.deno.dev/api.spacex.land/graphql
 ```
+
+[Visit](https://mkql.deno.dev/api.spacex.land/graphql)
 
 Nested path
 
@@ -47,4 +54,5 @@ It will add `/graphql` add the end if no path is provided
 ```
 https://mkql.deno.dev/api.spacex.land
 ```
+[Visit](https://mkql.deno.dev/api.spacex.land)
 
