@@ -97,13 +97,20 @@ fragment TypeRef on __Type {
 			}
 		}
 	}
-}`
+}`;
 
-export function createGFM(markdown: string, title: string, showHead: boolean = false) {
+export function createGFM(
+	markdown: string,
+	title: string,
+	showHead = false,
+	path = "/"
+) {
 	const body = render(markdown);
-	const head = showHead ? `<h4>Found URL</h4> 
+	const head = showHead
+		? `<h4>Found URL</h4> 
 	<a target="_blank" href="${title}"><code>${title}</code></a>	
-	<br>` : ''
+	<br>`
+		: "";
 
 	return `
 <!DOCTYPE html>
@@ -113,7 +120,11 @@ export function createGFM(markdown: string, title: string, showHead: boolean = f
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="color-scheme" content="dark">
-    <style>
+		<meta property="og:title" content="GraphQL to Markdown Doc" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://mkql.deno.dev${path}" />
+		<meta property="og:image" content="https://raw.githubusercontent.com/seanghay/mkql/main/mkql.png" />
+		<style>
 			body {background: black;}
       main {
 				max-width: 800px;
@@ -152,7 +163,7 @@ export async function introspectAsMarkdown(url: string) {
 	});
 	const { data: schema } = await response.json();
 	let markdown = "";
-  renderSchema(schema, {
+	renderSchema(schema, {
 		printer: (value: string) => {
 			markdown += value + "\n";
 		},
