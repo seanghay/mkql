@@ -99,8 +99,12 @@ fragment TypeRef on __Type {
 	}
 }`
 
-export function createGFM(markdown: string, title: string) {
+export function createGFM(markdown: string, title: string, showHead: boolean = false) {
 	const body = render(markdown);
+	const head = showHead ? `<h4>Found URL</h4> 
+	<a target="_blank" href="${title}"><code>${title}</code></a>	
+	<br>` : ''
+
 	return `
 <!DOCTYPE html>
 <html lang="en">
@@ -119,9 +123,7 @@ export function createGFM(markdown: string, title: string) {
   </head>
   <body>
     <main data-color-mode="light" data-light-theme="light" data-dark-theme="dark" class="markdown-body">
-			<h4>Found URL</h4> 
-			<a target="_blank" href="${title}"><code>${title}</code></a>	
-			<br>
+			${head}
 			${body}
     </main>
   </body>

@@ -22,8 +22,23 @@ function notFound() {
   });
 }
 
+async function homePage() {
+	const readmeFile = new URL("./readme.md", import.meta.url);
+	const content = await Deno.readTextFile(readmeFile);
+	return new Response(createGFM(content, "An instant GraphQL doc viewer", false), { 
+		headers: {
+			'content-type': "text/html; charset=UTF-8"
+		}
+	})
+}
+
 async function handler(req: Request) {
 	const url = new URL(req.url);
+
+	if (req.method === "GET" && url.pathname === "/") {
+		return homePage();
+	}
+
 
 	if (req.method === "GET" && url.pathname === "/favicon.ico") {
 		return notFound()
