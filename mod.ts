@@ -1,7 +1,7 @@
 import { serve } from "std/http/server.ts";
 import { introspectAsMarkdown, createGFM } from "./introspect.ts";
 
-const CACHE = await caches.open("v2");
+// const CACHE = await caches.open("v2");
 
 function isURL(url?: string) {
 	if (typeof url !== "string") {
@@ -16,13 +16,12 @@ function isURL(url?: string) {
 }
 
 async function handler(req: Request) {
-	const res = await CACHE.match(req);
-
-	if (res) {
-		res.headers.set("x-cache-hit", "true");
-		return res;
-	}
-
+	// const res = await CACHE.match(req);
+	// if (res) {
+	// 	res.headers.set("x-cache-hit", "true");
+	// 	return res;
+	// }
+  
 	const url = new URL(req.url);
 	let graphqlUrl = url.searchParams.get("url") as string;
 
@@ -52,8 +51,10 @@ async function handler(req: Request) {
 			"content-type": "text/html; charset=UTF-8",
 		},
 	});
-	await CACHE.put(req, response.clone());
-	return response;
+
+	// await CACHE.put(req, response.clone());
+	
+  return response;
 }
 
 console.log("Listening on http://localhost:8000");
