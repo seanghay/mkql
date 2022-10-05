@@ -112,17 +112,22 @@ export function createGFM(markdown: string, title: string, showHead: boolean = f
 		<title>GraphQL Markdown - ${title}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="color-scheme" content="dark">
     <style>
+			body {background: black;}
       main {
-        max-width: 800px;
+				max-width: 800px;
         margin: 0 auto;
 				padding: 1em;
 			}
       ${CSS}
+			.markdown-body {
+				background: black;
+			}
     </style>
   </head>
   <body>
-    <main data-color-mode="light" data-light-theme="light" data-dark-theme="dark" class="markdown-body">
+    <main data-color-mode="dark" data-light-theme="light" data-dark-theme="dark" class="markdown-body">
 			${head}
 			${body}
     </main>
