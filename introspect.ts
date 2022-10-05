@@ -116,11 +116,11 @@ export function createGFM(
 <!DOCTYPE html>
 <html lang="en">
   <head>
-		<title>GraphQL Markdown - ${title}</title>
+		<title>GraphQL Markdown / ${title}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="color-scheme" content="dark">
-		<meta property="og:title" content="GraphQL to Markdown Doc" />
+		<meta property="og:title" content="GraphQL Markdown / ${title}" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://mkql.deno.dev${path}" />
 		<meta property="og:image" content="https://raw.githubusercontent.com/seanghay/mkql/main/mkql-og.jpg" />
@@ -128,8 +128,8 @@ export function createGFM(
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@seanghay_yath">
 		<meta name="twitter:creator" content="@seanghay_yath">
-		<meta name="twitter:title" content="GraphQL to Markdown Doc">
-		<meta name="twitter:description" content="An instant GraphQL to Markdown Doc">
+		<meta name="twitter:title" content="GraphQL Markdown / ${title}">
+		<meta name="twitter:description" content="GraphQL Markdown / ${title}">
 		<meta name="twitter:image" content="https://raw.githubusercontent.com/seanghay/mkql/main/mkql-og.jpg">
 
 		<style>
