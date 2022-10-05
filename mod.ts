@@ -68,7 +68,7 @@ async function handler(req: Request) {
 	}
 
 	try {
-		const html = createGFM(await introspectAsMarkdown(graphqlUrl), graphqlUrl, false, url.pathname);
+		const html = createGFM(await introspectAsMarkdown(graphqlUrl), graphqlUrl.replace(/^https?:\/\//, ''), false, url.pathname);
 		const response = new Response(html, {
 			headers: {
 				"content-type": "text/html; charset=UTF-8",
