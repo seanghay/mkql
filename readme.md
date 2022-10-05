@@ -1,5 +1,3 @@
-# mkql
-
 An instant GraphQL doc viewer powered by Deno.
 
 <img src="https://raw.githubusercontent.com/seanghay/mkql/main/mkql.png" width="800">

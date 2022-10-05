@@ -1,6 +1,10 @@
 import renderSchema from "./render-schema.js";
 import { CSS, render } from "https://deno.land/x/gfm@0.1.26/mod.ts";
 
+const logoHTML = await Deno.readTextFile(
+	new URL("./logo.html", import.meta.url)
+);
+
 const Q = `
 query IntrospectionQuery {
 	__schema {
@@ -104,7 +108,7 @@ export function createGFM(
 	title: string,
 	href: string,
 	showHead = false,
-	path = "/",
+	path = "/"
 ) {
 	const body = render(markdown);
 	const head = showHead
@@ -147,10 +151,16 @@ export function createGFM(
 			table{
         border-collapse: collapse; /* Remove cell spacing */
     	}
+			.logo-container img {
+				background: transparent;
+				max-width: 240px;
+			}
     </style>
   </head>
   <body>
-    <main data-color-mode="dark" data-light-theme="light" data-dark-theme="dark" class="markdown-body">
+		
+	<main data-color-mode="dark" data-light-theme="light" data-dark-theme="dark" class="markdown-body">
+			<a href="/" class="logo-container">${logoHTML}</a>	
 			${head}
 			${body}
     </main>
