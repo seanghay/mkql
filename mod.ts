@@ -1,7 +1,7 @@
 import { serve } from "std/http/server.ts";
 import { introspectAsMarkdown, createGFM } from "./introspect.ts";
 
-const CACHE = await caches.open("v1");
+const CACHE = await caches.open("v2");
 
 function isURL(url?: string) {
 	if (typeof url !== "string") {
