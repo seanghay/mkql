@@ -25,7 +25,7 @@ function notFound() {
 async function homePage() {
 	const readmeFile = new URL("./readme.md", import.meta.url);
 	const content = await Deno.readTextFile(readmeFile);
-	return new Response(createGFM(content, "An instant GraphQL doc viewer", false), { 
+	return new Response(createGFM(content, "An instant GraphQL doc viewer", '/', false), { 
 		headers: {
 			'content-type': "text/html; charset=UTF-8"
 		}
@@ -68,7 +68,7 @@ async function handler(req: Request) {
 	}
 
 	try {
-		const html = createGFM(await introspectAsMarkdown(graphqlUrl), graphqlUrl.replace(/^https?:\/\//, ''), true, url.pathname);
+		const html = createGFM(await introspectAsMarkdown(graphqlUrl), graphqlUrl.replace(/^https?:\/\//, ''), graphqlUrl, true, url.pathname);
 		const response = new Response(html, {
 			headers: {
 				"content-type": "text/html; charset=UTF-8",

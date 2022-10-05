@@ -102,13 +102,14 @@ fragment TypeRef on __Type {
 export function createGFM(
 	markdown: string,
 	title: string,
+	href: string,
 	showHead = false,
-	path = "/"
+	path = "/",
 ) {
 	const body = render(markdown);
 	const head = showHead
 		? `<h4>Found URL</h4> 
-	<a target="_blank" href="${title}"><code>${title}</code></a>	
+	<a target="_blank" href="${href}"><code>${title}</code></a>	
 	<br>`
 		: "";
 
