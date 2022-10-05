@@ -35,16 +35,16 @@ async function homePage() {
 async function handler(req: Request) {
 	const url = new URL(req.url);
 
-	if (req.method === "GET" && url.pathname === "/") {
-		return homePage();
-	}
-
-
 	if (req.method === "GET" && url.pathname === "/favicon.ico") {
 		return notFound()
 	}
 
 	let graphqlUrl = url.searchParams.get("url") as string;
+
+	if (!graphqlUrl && req.method === "GET" && url.pathname === "/") {
+		return homePage();
+	}
+
 
   const regex = /^\/([\w\.]+)\/?(.+)?/;
   const matches = regex.exec(url.pathname);
