@@ -123,14 +123,14 @@ export function createGFM(
 		<meta property="og:title" content="GraphQL to Markdown Doc" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://mkql.deno.dev${path}" />
-		<meta property="og:image" content="https://raw.githubusercontent.com/seanghay/mkql/main/mkql.png" />
+		<meta property="og:image" content="https://raw.githubusercontent.com/seanghay/mkql/main/mkql-og.jpg" />
 
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@seanghay_yath">
 		<meta name="twitter:creator" content="@seanghay_yath">
 		<meta name="twitter:title" content="GraphQL to Markdown Doc">
 		<meta name="twitter:description" content="An instant GraphQL to Markdown Doc">
-		<meta name="twitter:image" content="https://raw.githubusercontent.com/seanghay/mkql/main/mkql.png">
+		<meta name="twitter:image" content="https://raw.githubusercontent.com/seanghay/mkql/main/mkql-og.jpg">
 
 		<style>
 			body {background: black;}
