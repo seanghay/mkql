@@ -99,12 +99,13 @@ fragment TypeRef on __Type {
 	}
 }`
 
-export function createGFM(markdown: string) {
+export function createGFM(markdown: string, title: string) {
 	const body = render(markdown);
 	return `
 <!DOCTYPE html>
 <html lang="en">
   <head>
+		<title>GraphQL Markdown - ${title}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -118,7 +119,10 @@ export function createGFM(markdown: string) {
   </head>
   <body>
     <main data-color-mode="light" data-light-theme="light" data-dark-theme="dark" class="markdown-body">
-      ${body}
+			<h4>Found URL</h4> 
+			<a target="_blank" href="${title}"><code>${title}</code></a>	
+			<br>
+			${body}
     </main>
   </body>
 </html>
