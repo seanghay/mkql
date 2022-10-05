@@ -1,4 +1,4 @@
-# mkql.deno.dev
+# mkql
 
 An instant GraphQL doc viewer powered by Deno.
 
