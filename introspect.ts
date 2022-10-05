@@ -124,6 +124,9 @@ export function createGFM(markdown: string, title: string, showHead: boolean = f
 			.markdown-body {
 				background: black;
 			}
+			table{
+        border-collapse: collapse; /* Remove cell spacing */
+    	}
     </style>
   </head>
   <body>
